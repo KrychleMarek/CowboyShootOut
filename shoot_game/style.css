@@ -1,0 +1,100 @@
+html{
+    background-color: burlywood;
+}
+header{
+    color: black;
+    align-content: center;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+#flex{
+    display: flex;
+}
+#GameControl>h2{
+    text-align: center;
+}
+#start{
+    margin-left: 72px;
+    
+}
+#GameControl{
+    background-color: white;
+    max-width:  200px;
+    min-width:  200px;
+    max-height: 500px;
+    min-height: 500px;
+    margin: 10px;
+    border: 5px black solid;
+}
+#GameSpace{
+    position: relative;
+    max-width: 1400px;
+    min-width: 1400px;
+    max-height: 759px;
+    min-height: 759px;
+    margin: 10px;
+    background-image: url(Western.jpg);
+    border: 5px black solid;
+}
+footer{
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+#p1, #p2{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px black solid;
+}
+#p1{
+    top: 530px;
+    left: 150px;
+    background-color: blue;
+}
+#p2{
+    top: 510px;
+    left: 1250px;
+    background-color: red;
+}
+#pop1, #pop2{
+    visibility: hidden;
+    position: absolute;
+    color: black;
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    top: 0;
+    left: 0;
+    font-weight: bold;
+}
+#obst1, #obst2, #obst3, #obst4, #obst5{
+    position: relative;
+    width: 34px;
+    height: 63px;
+    margin: 0px;
+    background-color: brown;
+    border: 2px solid black;
+}
+#obst1{
+    top: 398px;
+    left: 249px;
+}
+#obst2{
+    top: 542px;
+    left: 277px;
+}
+#obst3{
+    top: 400px;
+    left: 757px;
+}
+#obst4{
+    top: 198px;
+    left: 1194px;
+}
+#obst5{
+    left: 1178px;
+    top: 371px;
+}
