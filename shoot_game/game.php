@@ -27,9 +27,9 @@
             <p id="pop2"> Player 2</p>
         </div>
         <script>//input
-        var preMoveX;
-        var preMoveY;
-        var preMove = true;
+        //var preMoveX;
+        //var preMoveY;
+        //var preMove = true;
         {
     var player1 = document.getElementById("p1");
     var Keys = {
@@ -39,11 +39,11 @@
     right: false
     };
  window.onkeydown = function(e){
-        if(preMove){
+       /* if(preMove){
             preMoveX = player1.style.left;
             preMoveY = player1.style.top;
             preMove = false;
-        }
+        }*/
         var kc = e.keyCode;
          e.preventDefault();
     
@@ -66,6 +66,8 @@
         move();
     }
  function move(){
+    preMoveX=x1;
+    preMoveY=y1;
     if(Keys.up){
         movementUp();
     }
@@ -87,9 +89,9 @@
     }
 }
 setInterval(function(){
-    collision();
-    move();
-}, 100);}
+    
+    move();collision();
+}, 25);}
         </script>
 
         <script>//Obstacles
@@ -140,8 +142,3 @@ setInterval(function(){
 </html>
 
 
-<?php 
-
-
-
-?>
