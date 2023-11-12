@@ -69,6 +69,7 @@ function movementDown(){
     var player1 = document.getElementById("p1");
     $(player1).stop().animate({"top":(y1=y1+speed)},20);
     console.log("Dolů");
+    movementDown.called=true;
     return false;}
     else return false;
 }
@@ -91,21 +92,46 @@ function crosshair(){
 if(movementRight.called){
     sLine.style.rotate = 0 + "deg";
     sLine.style.marginRight = x1+speed;
+    sLine.style.left = x1+speed;
+    sLine.style.top = y1+5;
     sLine.style.right = 0;
-    $(sLine).stop().animate({"left":(x1+speed), "top":(y1+5)},20);
+    sLine.style.width="auto";
+    //$(sLine).stop().animate({"left":(x1+speed), "top":(y1+5)},20);
     movementRight.called=false;
 }else if(movementLeft.called){
     sLine.style.rotate = 0 + "deg";
     sLine.style.marginRight = 1380-x1;
     sLine.style.left = 0;
-    $(sLine).stop().animate({"right":(x1+speed), "top":(y1+5)},20);
+    sLine.style.width="auto";
+    sLine.style.top = y1+5;
+   // $(sLine).stop().animate({"right":(x1+speed), "top":(y1+5)},20);
     movementLeft.called=false;
 }else if(movementUp.called){
     sLine.style.rotate = 90 + "deg";
-    sLine.style.left = 0;
-    sLine.style.right = 0;
-    $(sLine).stop().animate({"left":(x1),"top":(y1)},20);
+    //sLine.style.left = 0;
+    sLine.style.marginRight=0;
+    //sLine.style.marginTop=x1;
+    //sLine.style.top=
+   // sLine.style.right = 0;
+   var ofset=230;
+   sLine.style.left=(x1-1505+y1/2);
+   sLine.style.width=(y1-235);
+   sLine.style.top=ofset+(y1-ofset)/2;
+    //$(sLine).stop().animate({"top":(ofset+(y1-ofset)/2)},20,);
     movementUp.called=false
+}if(movementDown.called){
+    sLine.style.rotate = 90 + "deg";
+    //sLine.style.left = 0;
+    sLine.style.marginRight=0;
+    //sLine.style.marginTop=x1;
+    //sLine.style.top=
+   // sLine.style.right = 0;
+   var ofset=748;
+   sLine.style.left=(x1-1013-y1/2);
+   sLine.style.width=(-y1+750);
+   sLine.style.top=ofset+(y1-ofset)/2;
+    //$(sLine).stop().animate({"top":(ofset+(y1-ofset)/2)},20,);
+    movementDown.called=false
 }
 }
 
