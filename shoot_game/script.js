@@ -2,6 +2,7 @@ var y1, x1, y2, x2;
 var v, h;
 var preMoveX, preMoveY;
 var speed=5;
+var sLine;
 function onLoad(){
     y1 = $("#p1").css("top");
     x1 = $("#p1").css("left");
@@ -40,6 +41,7 @@ function movementRight(){
     var player1 = document.getElementById("p1");
     $(player1).stop().animate({"left":(x1=x1+speed)},20);
     console.log("Pravá");
+    movementRight.called=true;
     return false;}
         else return false;
 }
@@ -49,6 +51,7 @@ function movementLeft(){
     var player1 = document.getElementById("p1");
     $(player1).stop().animate({"left":(x1=x1-speed)},20);
     console.log("Levá");
+    movementLeft.called=true;
     return false;}
     else return false;
 }
@@ -57,6 +60,7 @@ function movementUp(){
     var player1 = document.getElementById("p1");
     $(player1).stop().animate({"top":(y1=y1-speed)},20);
     console.log("Nahoru");
+    movementUp.called = true;
     return false;}
     else return false;
 }
@@ -81,6 +85,30 @@ function diagMovement(){
         $(player1).stop().animate({"top":(y1=y1+norm),"left":(x1=x1-norm)},20);
     }
 }
+
+function crosshair(){
+    sLine = document.getElementById("sLine");
+if(movementRight.called){
+    sLine.style.rotate = 0 + "deg";
+    sLine.style.marginRight = x1+speed;
+    sLine.style.right = 0;
+    $(sLine).stop().animate({"left":(x1+speed), "top":(y1+5)},20);
+    movementRight.called=false;
+}else if(movementLeft.called){
+    sLine.style.rotate = 0 + "deg";
+    sLine.style.marginRight = 1380-x1;
+    sLine.style.left = 0;
+    $(sLine).stop().animate({"right":(x1+speed), "top":(y1+5)},20);
+    movementLeft.called=false;
+}else if(movementUp.called){
+    sLine.style.rotate = 90 + "deg";
+    sLine.style.left = 0;
+    sLine.style.right = 0;
+    $(sLine).stop().animate({"left":(x1),"top":(y1)},20);
+    movementUp.called=false
+}
+}
+
 }
 
 {//PLAYER2
@@ -99,3 +127,4 @@ for(let i = 0; i<Obst.length; i++){
   }
 }
 }
+

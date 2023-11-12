@@ -16,6 +16,7 @@
             <button id="start" type="button" onclick="popisky(), obstacles()" >START</button>
         </div>
         <div id="GameSpace">
+            <hr id="sLine">
             <div id="obst1"></div>
             <div id="obst2"></div>
             <div id="obst3"></div>
@@ -89,8 +90,8 @@
     }
 }
 setInterval(function(){
-    
     move();collision();
+    crosshair();
 }, 25);}
         </script>
 

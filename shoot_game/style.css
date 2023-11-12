@@ -98,3 +98,7 @@ footer{
     left: 1178px;
     top: 371px;
 }
+#sLine{
+    position: relative;
+    background-color: lightblue;
+}
