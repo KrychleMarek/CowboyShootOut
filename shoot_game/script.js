@@ -1,6 +1,7 @@
 var y1, x1, y2, x2;
 var v, h;
 var preMoveX, preMoveY;
+var speed=5;
 function onLoad(){
     y1 = $("#p1").css("top");
     x1 = $("#p1").css("left");
@@ -37,7 +38,7 @@ function popisky(){
 function movementRight(){
     if(x1<1370&&Object.values(Keys).reduce((a, item) => a + item, 0)==1){
     var player1 = document.getElementById("p1");
-    $(player1).stop().animate({"left":(x1=x1+5)},20);
+    $(player1).stop().animate({"left":(x1=x1+speed)},20);
     console.log("Pravá");
     return false;}
         else return false;
@@ -46,7 +47,7 @@ function movementRight(){
 function movementLeft(){
     if(x1>10&&Object.values(Keys).reduce((a, item) => a + item, 0)==1){
     var player1 = document.getElementById("p1");
-    $(player1).stop().animate({"left":(x1=x1-5)},20);
+    $(player1).stop().animate({"left":(x1=x1-speed)},20);
     console.log("Levá");
     return false;}
     else return false;
@@ -54,7 +55,7 @@ function movementLeft(){
 function movementUp(){
     if(y1>240&&Object.values(Keys).reduce((a, item) => a + item, 0)==1){
     var player1 = document.getElementById("p1");
-    $(player1).stop().animate({"top":(y1=y1-5)},20);
+    $(player1).stop().animate({"top":(y1=y1-speed)},20);
     console.log("Nahoru");
     return false;}
     else return false;
@@ -62,21 +63,22 @@ function movementUp(){
 function movementDown(){
     if(y1<730&&Object.values(Keys).reduce((a, item) => a + item, 0)==1){
     var player1 = document.getElementById("p1");
-    $(player1).stop().animate({"top":(y1=y1+5)},20);
+    $(player1).stop().animate({"top":(y1=y1+speed)},20);
     console.log("Dolů");
     return false;}
     else return false;
 }
 function diagMovement(){
     var player1 = document.getElementById("p1");
+    var norm=Math.sqrt(speed*speed*2)/2
     if(Keys.up && Keys.right && y1>240 && x1<1370){
-        $(player1).stop().animate({"top":(y1=y1-5),"left":(x1=x1+5)},20);
+        $(player1).stop().animate({"top":(y1=y1-norm),"left":(x1=x1+norm)},20);
     }else if(Keys.up && Keys.left && y1>240 && x1>10){
-        $(player1).stop().animate({"top":(y1=y1-5),"left":(x1=x1-5)},20);
+        $(player1).stop().animate({"top":(y1=y1-norm),"left":(x1=x1-norm)},20);
     }else if(Keys.down && Keys.right && y1<730 && x1<1370){
-        $(player1).stop().animate({"top":(y1=y1+5),"left":(x1=x1+5)},20);
+        $(player1).stop().animate({"top":(y1=y1+norm),"left":(x1=x1+norm)},20);
     }else if(Keys.down && Keys.left && y1<730 && x1>10){
-        $(player1).stop().animate({"top":(y1=y1+5),"left":(x1=x1-5)},20);
+        $(player1).stop().animate({"top":(y1=y1+norm),"left":(x1=x1-norm)},20);
     }
 }
 }
